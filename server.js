@@ -88,7 +88,7 @@ app.get('/article-three',function(req,res){
 });
 */
 
-app.get('/:particleName',function(req,res){
+app.get('/:articleName',function(req,res){
     //articleName==article-one
     //article[articleName]=={} content object for article one
     var articleName=req.params.articleName;
