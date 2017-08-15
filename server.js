@@ -5,13 +5,31 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleOne={
-  title: 'Article One | Shreya Shambhawi Singh',  
-  heading: 'Article One',
-  date: '25 March,2017',
-  content:`<p>
-             This is the content of my first article
-           </p>`
+var article= {
+    articleOne:{
+      title: 'Article One | Shreya Shambhawi Singh',  
+      heading: 'Article One',
+      date: '25 March,2017',
+      content:`<p>
+                 This is the content of my first article
+               </p>`
+    },
+    articleTwo:{
+        title: 'Article Two | Shreya Shambhawi Singh',  
+      heading: 'Article Two',
+      date: '25 March,2017',
+      content:`<p>
+                 This is the content of my second article
+               </p>`
+    },
+    articleThree:{
+        title: 'Article Three | Shreya Shambhawi Singh',  
+      heading: 'Article Three',
+      date: '25 March,2017',
+      content:`<p>
+                 This is the content of my third article
+               </p>`
+    },
 };
 
 function createTemplate(data){
@@ -61,16 +79,20 @@ app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 
-app.get('/article-two',function(req,res){
+/*app.get('/article-two',function(req,res){
    res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
 });
 
 app.get('/article-three',function(req,res){
     res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
 });
+*/
 
-app.get('/article-one',function(req,res){
-    res.send(createTemplate(articleOne));
+app.get('/:articleName',function(req,res){
+    //articleName==article-one
+    //article[articleName]=={} content object for article one
+    var articleName=req.params.articleName;
+    res.send(createTemplate(articles[articleName]));
 });
 
 // Do not change port, otherwise your app won't run on IMAD servers
