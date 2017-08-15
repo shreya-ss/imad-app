@@ -6,30 +6,30 @@ var app = express();
 app.use(morgan('combined'));
 
 var articles= {
-    articleOne:{
+    'article-one':{
       title: 'Article One | Shreya Shambhawi Singh',  
       heading: 'Article One',
       date: '25 March,2017',
       content:`<p>
                  This is the content of my first article
                </p>`
-    },
-    articleTwo:{
+    },      //ArticleOne: {},
+    'article-two':{
         title: 'Article Two | Shreya Shambhawi Singh',  
       heading: 'Article Two',
       date: '25 March,2017',
       content:`<p>
                  This is the content of my second article
                </p>`
-    },
-    articleThree:{
+    },      //ArticleTwo: {},
+    'article-three':{
         title: 'Article Three | Shreya Shambhawi Singh',  
       heading: 'Article Three',
       date: '25 March,2017',
       content:`<p>
                  This is the content of my third article
                </p>`
-    },
+    }     //ArticleThree: {}
 };
 
 function createTemplate(data){
@@ -88,7 +88,7 @@ app.get('/article-three',function(req,res){
 });
 */
 
-app.get('/:articleName',function(req,res){
+app.get('/:particleName',function(req,res){
     //articleName==article-one
     //article[articleName]=={} content object for article one
     var articleName=req.params.articleName;
