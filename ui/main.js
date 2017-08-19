@@ -12,9 +12,9 @@ button.onclick=function(){
             //Take some action
             if(request.status === 200)
             {
-               var  counter=5;
+               var  counter=request.responseText;
                var span=document.getElementById('count');
-               span.innerHTML= counter.toString();
+               span.innerHTML="Hey";
                 
             }
         }
