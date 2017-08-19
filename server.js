@@ -78,9 +78,9 @@ app.get('/counter',function(req,res) {
 });
 
 var names=[];
-app.get('/submit_btn/:name',function(req,res){
+app.get('/submit-name',function(req,res){ //URL= /submit-name?name=xxxx
     //Get the name to be input
-    var name=req.params.name;
+    var name=req.query.name;
     //Push the name in the list
     names.push(name);
     //Send the response
