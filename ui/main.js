@@ -5,7 +5,7 @@ button.onclick=function(){
     //Create a request
     var request=new XMLHttpRequest();
     //Capture the response and store it in a variable
-    request.onreadystatechange=function(){
+    request.onreadystatechange =function(){
         alert("HELLO");
         if(request.readystate === XMLHttpRequest.DONE)
         {
@@ -22,7 +22,7 @@ button.onclick=function(){
     };
     //Make request to the server
     request.open('GET','http://shreyashambhawi.imad.hasura-app.io/counter',true);
-    request.send(null);
+    request.send();
 };
 
 
