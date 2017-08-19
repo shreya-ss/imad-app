@@ -1,6 +1,6 @@
 //Counter Code
 var button=document.getElementById('counter');
-alert("HELLO");
+alert('HELLO');
 button.onclick=function(){
     
     //Create a request
