@@ -27,11 +27,12 @@ button.onclick=function(){
 
 //Submit a new name
 
-var newname=document.getElementById('name');
-var name=newname.value;
+var nameInput=document.getElementById('name');
+var name=nameInput.value;
 var submit=document.getElementById('submit_btn');
 submit.onclick= function(){
-    //Make request to the server and send the anem
+    //Make request to the server and send the name
+    
     //Capture a list of names and render it as a list
     var names=['name1','name2','name3','name4'];
     var list='';
