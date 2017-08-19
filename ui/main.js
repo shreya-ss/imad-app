@@ -1,5 +1,7 @@
 //Counter Code
 var button=document.getElementById('counter');
+var span=document.getElementById('countme');
+span.innerHTML="5";
 button.onclick=function(){
     
     //Create a request
