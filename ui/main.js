@@ -30,8 +30,6 @@ button.onclick=function(){
 
 var submit=document.getElementById('submit_btn');
 submit.onclick= function(){
-    var nameInput=document.getElementById('name');
-    var name=nameInput.value;
     //Make request to the server and send the name
     var request=new XMLHttpRequest();
     //Capture the response and store it in a variable
@@ -55,6 +53,8 @@ submit.onclick= function(){
         }
     };
     //Make request to the server
+    var nameInput=document.getElementById('name');
+    var name=nameInput.value;
     request.open('GET','http://shreyashambhawi.imad.hasura-app.io/submit-name?name='+name,true);
     request.send();
 };
