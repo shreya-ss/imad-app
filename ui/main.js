@@ -3,10 +3,26 @@ var button=document.getElementById('counter');
 var counter=0;
 button.onclick=function(){
     
-    //Render the response to the HTML
-    counter=counter+1;
-    var sc=document.getElementById('count');
-    sc.innerHTML=counter.toString();
+    //Create a request
+    var request=new XMLHttpRequest();
+    
+    //Capture the response and store it in a variable
+    request.onreadystatechange=function(){
+        if(request.readystate==XMLHttpRequest.DONE)
+        {
+            //Take some action
+            if(request.status==200)
+            {
+               var  counter=request.responseText;
+               var span=document.getEleemntById('count');
+               span.innerHTML=counter;
+                
+            }
+        }
+    };
+    //Make request to the server
+    request.open('GET','http://shreyashambhawi.imad.hasura-app.io/counter',true);
+    request.send(null);
 };
 
 
