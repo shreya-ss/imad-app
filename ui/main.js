@@ -13,8 +13,8 @@ button.onclick=function(){
             if(request.status==200)
             {
                var  counter=request.responseText;
-               var sc=document.getElementById('count');
-               sc.innerHTML=counter.toString();
+               var span=document.getElementById('count');
+               span.innerHTML=counter.toString();
                 
             }
         }
