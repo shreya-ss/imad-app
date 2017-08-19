@@ -77,6 +77,17 @@ app.get('/counter',function(req,res) {
    res.send(counter.toString());
 });
 
+var names=[];
+app.get('/submit_btn/:name',function(req,res){
+    //Get the name to be input
+    var name=req.params.name;
+    //Push the name in the list
+    names.push(name);
+    //Send the response
+    //JSON : Javascript Object Notation
+    res.send(JSON.stringify(names));
+});
+
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
