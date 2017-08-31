@@ -14,15 +14,7 @@ var config={
 
 var pool = new Pool(config);
 
-function hash(input,salt){
-    var hashed = crypto.pbkdf2(input,salt,10000,512,'sha512');
-    return hashed.toString('hex');
-}
 
-app.get('/hash/:input',function(req,res){
-   var hashedString = hash(input,'this-is-some-random-string');
-   res.send(hashedSting);
-});
 
 var app = express();
 app.use(morgan('combined'));
@@ -112,6 +104,16 @@ var counter=0;
 app.get('/counter',function(req,res) {
    counter=counter+1;
    res.send(counter.toString());
+});
+
+function hash(input,salt){
+    var hashed = crypto.pbkdf2(input,salt,10000,512,'sha512');
+    return hashed.toString('hex');
+}
+
+app.get('/hash/:input',function(req,res){
+   var hashedString = hash(input,'this-is-some-random-string');
+   res.send(hashedSting);
 });
 
 var names=[];
