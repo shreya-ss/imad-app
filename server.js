@@ -111,6 +111,21 @@ function hash(input,salt){
     return ['pbkdf2','100000','512',salt,hashed.toString('hex')].join('$');
 }
 
+app.get('/createUser',function(req,res){
+   var salt = crypto.getRandonBytes(128).toString(hex);
+   var dbString = hash(password);
+   pool.query('INSERT INTO "user" (username,password) VALUES ($1,$2)',[username,dbString],function(err,result){
+        if (err)
+        {
+            res.status(500).send(err.toString());
+        }
+        else
+        {
+            res.send('User successfully created: +'username);
+        }       
+   });
+});
+
 app.get('/hash/:input',function(req,res){
    var hashedString = hash(req.params.input,'this-is-some-random-string');
    res.send(hashedString);
